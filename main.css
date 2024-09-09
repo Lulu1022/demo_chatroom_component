@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+#app {
+    padding: 20px;
+}
+.chatbox {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 300px;
+    height: 200px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.chatbox-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+.chatbox-messages {
+    height: 120px;
+    padding: 10px;
+    overflow-y: auto;
+}
+.chatbox-input {
+    width: 100%;
+    padding: 5px;
+}
+.menu {
+    margin-bottom: 20px;
+}
+.menu button {
+    margin-right: 10px;
+}

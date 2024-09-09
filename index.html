@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 聊天室 Demo</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div id="app">
+    <div class="menu">
+        <button id="btnPage1">切換到頁面 1</button>
+        <button id="btnPage2">切換到頁面 2</button>
+    </div>
+
+    <div id="content">
+        <h1 id="pageTitle"></h1>
+        <p id="pageContent"></p>
+    </div>
+
+    <!-- 聊天室組件 -->
+    <chat-box></chat-box>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+<script src="vue.js"></script>  <!-- Vue 程式碼 -->
+<script src="native.js"></script> <!-- 原生 JavaScript 程式碼 -->
+
+</body>
+</html>
