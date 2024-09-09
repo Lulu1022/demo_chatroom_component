@@ -18,16 +18,31 @@ const ChatBox = {
     },
     created() {
         this.renderCount += 1; // 每次組件創建時，渲染次數 +1
+        
+        window.addEventListener('newMessage', this.receiveMessage); // 監聽 'newMessage' 事件
+    },
+    beforeUnmount() {
+        // 組件銷毀時移除監聽
+        window.removeEventListener('newMessage', this.receiveMessage);
     },
     methods: {
         addMessage() {
             if (this.newMessage.trim()) {
                 this.messages.push(this.newMessage);
                 this.newMessage = '';
-                this.$nextTick(() => {
-                    this.$refs.messages.scrollTop = this.$refs.messages.scrollHeight;
-                });
+                this.scrollToBottom();
             }
+        },
+        receiveMessage(event) {
+            // 接收到的自定義事件中的訊息
+            const newMessage = event.detail;
+            this.messages.push(newMessage);
+            this.scrollToBottom();
+        },
+        scrollToBottom() {
+            this.$nextTick(() => {
+                this.$refs.messages.scrollTop = this.$refs.messages.scrollHeight;
+            });
         }
     }
 };

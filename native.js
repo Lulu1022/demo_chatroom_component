@@ -3,15 +3,39 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnPage2 = document.getElementById('btnPage2');
     const contentDiv = document.getElementById('content');
 
-    // 動態加載頁面內容的函數
+    // 動態加載頁面
     function loadPage(url) {
         fetch(url)
             .then(response => response.text())
             .then(html => {
                 contentDiv.innerHTML = html;
+    
+                // 查找 HTML 中的 <script src=""> 並動態加載該外部 JS 檔案
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = html; // 解析載入的 HTML
+                const scripts = tempDiv.querySelectorAll('script');
+    
+                scripts.forEach(script => {
+                    if (script.src) {
+                        // 如果是外部 JS 檔案，動態加載
+                        const newScript = document.createElement('script');
+                        newScript.src = script.src;
+                        document.body.appendChild(newScript); // 動態添加到 body 中
+                    }
+                });
             })
             .catch(error => console.error('無法加載頁面:', error));
     }
+    
+    // // 動態加載頁面內容的函數
+    // function loadPage(url) {
+    //     fetch(url)
+    //         .then(response => response.text())
+    //         .then(html => {
+    //             contentDiv.innerHTML = html;
+    //         })
+    //         .catch(error => console.error('無法加載頁面:', error));
+    // }
 
     // 點擊按鈕切換頁面並更新 URL
     btnPage1.addEventListener('click', () => {
@@ -44,8 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadPageFromUrl();
 });
 
-
-// // 原生 JavaScript 處理按鈕點擊事件
 // document.getElementById('btnPage1').addEventListener('click', function() {
 //     loadPage('page1');
 // });
