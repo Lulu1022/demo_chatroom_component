@@ -20,7 +20,10 @@
     </div>
 
     <!-- 聊天室組件 -->
-    <chat-box></chat-box>
+    <!-- 傳遞參數給 chat-box -->
+    <chat-box :initial-messages="['歡迎進入聊天室！']" chatbox-title="我的聊天室"></chat-box>
+
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>

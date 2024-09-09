@@ -1,8 +1,8 @@
-// 定義聊天室組件
 const ChatBox = {
+    props: ['initialMessages', 'chatboxTitle'],
     template: `
         <div class="chatbox">
-            <div class="chatbox-header">聊天室（渲染次數: {{ renderCount }}）</div>
+            <div class="chatbox-header">{{ chatboxTitle }}（渲染次數: {{ renderCount }}）</div>
             <div class="chatbox-messages" ref="messages">
                 <p v-for="message in messages">{{ message }}</p>
             </div>
@@ -11,7 +11,7 @@ const ChatBox = {
     `,
     data() {
         return {
-            messages: [],
+            messages: Array.isArray(this.initialMessages) ? [...this.initialMessages] : [], // 確保是陣列
             newMessage: '',
             renderCount: 0
         };
@@ -31,6 +31,7 @@ const ChatBox = {
         }
     }
 };
+
 
 // Vue app 實例
 const app = Vue.createApp({
