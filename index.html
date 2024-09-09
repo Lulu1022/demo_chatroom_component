@@ -15,6 +15,37 @@
     </div>
 
     <div id="content">
+        <!-- 這裡會動態載入頁面 1 或頁面 2 的內容 -->
+    </div>
+
+    <!-- 聊天室組件 -->
+    <chat-box :initial-messages="['歡迎進入聊天室！']" chatbox-title="我的聊天室"></chat-box>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+<script src="vue.js"></script>  <!-- Vue 程式碼 -->
+<script src="native.js"></script> <!-- 原生 JavaScript 程式碼 -->
+
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 聊天室 Demo</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div id="app">
+    <div class="menu"><a></a>
+        <button id="btnPage1">切換到頁面 1</button>
+        <button id="btnPage2">切換到頁面 2</button>
+    </div>
+
+    <div id="content">
         <h1 id="pageTitle"></h1>
         <p id="pageContent"></p>
     </div>
@@ -31,4 +62,4 @@
 <script src="native.js"></script> <!-- 原生 JavaScript 程式碼 -->
 
 </body>
-</html>
+</html> -->
